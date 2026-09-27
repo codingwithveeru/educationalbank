@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us - EduMaster{% endblock %}
+
+{% block extra_css %}
+<style>
+    .contact-info-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        padding: 30px;
+        height: 100%;
+    }
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-3">Contact Us</h1>
+        <p class="lead">Have questions? We'd love to hear from you!</p>
+    </div>
+</section>
+
+<!-- Messages -->
+{% if messages %}
+<div class="container mt-3">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- Contact Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Contact Info -->
+            <div class="col-lg-4">
+                <div class="contact-info-card">
+                    <h3 class="mb-4">Get in Touch</h3>
+                    
+                    <div class="mb-4">
+                        <div class="contact-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h5>Address</h5>
+                        <p class="mb-0">Bansi, Siddharthnagar<br>Uttar Pradesh, India 272153</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <h5>Email</h5>
+                        <p class="mb-0">support@edumaster.com</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="contact-icon">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <h5>Phone</h5>
+                        <p class="mb-0">+91 98765 43210</p>
+                    </div>
+                    
+                    <div>
+                        <div class="contact-icon">
+                            <i class="bi bi-clock-fill"></i>
+                        </div>
+                        <h5>Working Hours</h5>
+                        <p class="mb-0">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4">Send us a Message</h3>
+                        <form method="POST" action="{% url 'contact' %}">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Full Name *</label>
+                                    <input type="text" name="name" class="form-control form-control-lg" 
+                                           placeholder="Raftaar" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email Address *</label>
+                                    <input type="email" name="email" class="form-control form-control-lg" 
+                                           placeholder="raftaar@example.com" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Subject *</label>
+                                    <input type="text" name="subject" class="form-control form-control-lg" 
+                                           placeholder="Course inquiry" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Message *</label>
+                                    <textarea name="message" class="form-control" rows="6" 
+                                              placeholder="Tell us how we can help you..." required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg px-5">
+                                        <i class="bi bi-send-fill"></i> Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h3 class="text-center mb-4">Find Us on Map</h3>
+        <div class="ratio ratio-21x9 rounded shadow overflow-hidden">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113996.78473847454!2d82.8847!3d27.2833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3990a0c0c0c0%3A0x0!2sBansi%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1234567890" 
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+{% endblock %}

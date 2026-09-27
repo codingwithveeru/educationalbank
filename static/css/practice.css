@@ -1,0 +1,49 @@
+.practice-hero {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.stat-box {
+    background: rgba(255,255,255,0.2);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.practice-card {
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+}
+
+.practice-card:hover {
+    transform: translateY(-10px);
+}
+
+.icon-box {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.subject-card {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+}
+
+.subject-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+}
+
+.leaderboard-item {
+    transition: background 0.2s;
+}
+
+.leaderboard-item:hover {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+}

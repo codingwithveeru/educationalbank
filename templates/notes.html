@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Free Notes - EduVerse{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/notes.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="notes-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Free Study Notes</h1>
+            <p class="text-muted">Download kar aur padhai shuru kar 👇</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
+            <button class="btn btn-primary filter-btn active" data-filter="all">All</button>
+            <button class="btn btn-outline-primary filter-btn" data-filter="class10">Class 10</button>
+            <button class="btn btn-outline-primary filter-btn" data-filter="class12">Class 12</button>
+            <button class="btn btn-outline-primary filter-btn" data-filter="jee">JEE</button>
+            <button class="btn btn-outline-primary filter-btn" data-filter="neet">NEET</button>
+        </div>
+
+        <!-- Notes Cards -->
+        <div class="row g-4">
+            <!-- Note 1 -->
+            <div class="col-md-4 note-card" data-category="class10">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">FREE</span>
+                        <h5 class="card-title">Class 10 Maths Notes</h5>
+                        <p class="card-text text-muted">Complete NCERT Chapter-wise notes with formulas</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">PDF • 2.5 MB</small>
+                            <a href="{% static 'notes/class10_maths.pdf' %}" class="btn btn-primary btn-sm" download>
+                                <i class="bi bi-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Note 2 -->
+            <div class="col-md-4 note-card" data-category="class12">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">FREE</span>
+                        <h5 class="card-title">Class 12 Physics</h5>
+                        <p class="card-text text-muted">Electrostatics + Current Electricity notes</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">PDF • 3.1 MB</small>
+                            <a href="{% static 'notes/class12_physics.pdf' %}" class="btn btn-primary btn-sm" download>
+                                <i class="bi bi-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Note 3 -->
+            <div class="col-md-4 note-card" data-category="jee">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">FREE</span>
+                        <h5 class="card-title">JEE Chemistry</h5>
+                        <p class="card-text text-muted">Organic Chemistry short notes + reactions</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">PDF • 4.2 MB</small>
+                            <a href="{% static 'notes/jee_chemistry.pdf' %}" class="btn btn-primary btn-sm" download>
+                                <i class="bi bi-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Note 4 -->
+            <div class="col-md-4 note-card" data-category="neet">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">FREE</span>
+                        <h5 class="card-title">NEET Biology</h5>
+                        <p class="card-text text-muted">Human Physiology diagrams + key points</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">PDF • 5.0 MB</small>
+                            <a href="{% static 'notes/neet_biology.pdf' %}" class="btn btn-primary btn-sm" download>
+                                <i class="bi bi-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Filter Logic
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Button active class
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active', 'btn-primary'));
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.add('btn-outline-primary'));
+        this.classList.add('active', 'btn-primary');
+        this.classList.remove('btn-outline-primary');
+        
+        // Filter cards
+        const filter = this.getAttribute('data-filter');
+        document.querySelectorAll('.note-card').forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

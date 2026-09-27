@@ -1,0 +1,66 @@
+{% load static %}
+
+<!-- Floating AI Button -->
+
+<div class="ai-floating-btn" id="openChat">
+
+    <img src="{% static 'images/ai_teacher.png' %}" alt="AI">
+
+</div>
+
+<!-- Chat Window -->
+
+<div class="ai-chat-box" id="chatBox">
+
+    <div class="chat-header">
+
+        <div class="chat-title">
+
+            🤖 Edu AI
+
+        </div>
+
+        <button id="closeChat">
+
+            ✖
+
+        </button>
+
+    </div>
+
+    <div class="chat-body" id="chatBody">
+
+        <div class="ai-msg">
+
+            👋 Hello! Welcome to EduVerse.
+
+            <br><br>
+
+            How can I help you today?
+
+        </div>
+
+    </div>
+
+    <div class="chat-footer">
+
+        <input
+        id="userInput"
+        type="text"
+        placeholder="Type your message...">
+
+        <button id="voiceBtn">
+
+            🎤
+
+        </button>
+
+        <button id="sendBtn">
+
+            ➤
+
+        </button>
+
+    </div>
+
+</div>

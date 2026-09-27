@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Certificate Demo - EduMaster{% endblock %}
+
+{% block extra_css %}
+<style>
+    .certificate-box {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 5px;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    
+    .certificate-inner {
+        background: white;
+        border: 10px solid #ffd700;
+        border-radius: 10px;
+        padding: 60px 40px;
+        position: relative;
+        min-height: 600px;
+    }
+    
+    .cert-watermark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        font-size: 120px;
+        color: rgba(102, 126, 234, 0.05);
+        font-weight: bold;
+        z-index: 0;
+    }
+    
+    .cert-content { position: relative; z-index: 1; }
+    
+    .cert-title {
+        font-size: 48px;
+        font-weight: 700;
+        color: #667eea;
+        margin-bottom: 10px;
+    }
+    
+    .cert-name {
+        font-family: 'Great Vibes', cursive;
+        font-size: 64px;
+        color: #2d3748;
+        margin: 30px 0;
+        border-bottom: 3px solid #667eea;
+        display: inline-block;
+        padding: 0 40px 10px;
+    }
+    
+    .cert-course {
+        font-size: 24px;
+        font-weight: 600;
+        color: #764ba2;
+        margin: 20px 0;
+    }
+    
+    .cert-text { font-size: 18px; color: #4a5568; }
+    
+    .cert-seal {
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
+        width: 120px;
+        height: 120px;
+        border: 5px solid #ffd700;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+    }
+    
+    .cert-badge {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        font-size: 60px;
+        color: #ffd700;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Input Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h1 class="display-5 fw-bold mb-3">
+            <i class="bi bi-award"></i> Demo Certificate Generator
+        </h1>
+        <p class="lead">Apna naam daalo aur dekho certificate kaisa lagega</p>
+    </div>
+</section>
+
+<!-- Name Input -->
+<section class="py-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-4">
+                        <label class="form-label fw-bold">Apna Naam Likho:</label>
+                        <input type="text" id="studentName" class="form-control form-control-lg mb-3" 
+                               placeholder="Raftaar" value="Raftaar">
+                        
+                        <label class="form-label fw-bold">Course Select Karo:</label>
+                        <select id="courseName" class="form-select form-select-lg mb-3">
+                            <option>Python Full Stack Development</option>
+                            <option>Data Science & Machine Learning</option>
+                            <option>Web Development Bootcamp</option>
+                            <option>Digital Marketing Masterclass</option>
+                            <option>UI/UX Design Pro</option>
+                        </select>
+                        
+                        <button onclick="updateCertificate()" class="btn btn-primary btn-lg w-100">
+                            <i class="bi bi-arrow-clockwise"></i> Certificate Update Karo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certificate Preview -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="certificate-box">
+                    <div class="certificate-inner text-center">
+                        <div class="cert-watermark">EDUMASTER</div>
+                        <div class="cert-badge">
+                            <i class="bi bi-award-fill"></i>
+                        </div>
+                        
+                        <div class="cert-content">
+                            <img src="https://img.icons8.com/fluency/96/graduation-cap.png" width="80" class="mb-3">
+                            
+                            <div class="cert-title">Certificate of Completion</div>
+                            <div class="text-muted mb-4">This is to certify that</div>
+                            
+                            <div class="cert-name" id="displayName">Raftaar</div>
+                            
+                            <div class="cert-text mt-4">has successfully completed the course</div>
+                            <div class="cert-course" id="displayCourse">Python Full Stack Development</div>
+                            
+                            <div class="cert-text mt-4">with excellence and dedication</div>
+                            
+                            <div class="row mt-5 pt-4">
+                                <div class="col-6 text-start">
+                                    <div style="border-top: 2px solid #333; width: 200px; padding-top: 5px;">
+                                        <strong>Director</strong><br>
+                                        <small class="text-muted">EduMaster Academy</small>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <div style="border-top: 2px solid #333; width: 200px; padding-top: 5px; margin-left: auto;">
+                                        <strong>Date</strong><br>
+                                        <small class="text-muted" id="certDate"></small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="cert-seal">
+                                <div class="text-center">
+                                    <i class="bi bi-patch-check-fill" style="font-size: 40px; color: #667eea;"></i>
+                                    <div style="font-size: 10px; font-weight: bold; color: #667eea;">VERIFIED</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <button onclick="downloadCert()" class="btn btn-success btn-lg">
+                        <i class="bi bi-download"></i> Download Certificate
+                    </button>
+                    <p class="text-muted mt-2"><small>* Ye demo hai, real certificate course complete karne pe milega</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+    document.getElementById('certDate').textContent = new Date().toLocaleDateString('en-IN', {
+        year: 'numeric', month: 'long', day: 'numeric'
+    });
+    
+    function updateCertificate() {
+        const name = document.getElementById('studentName').value || 'Student Name';
+        const course = document.getElementById('courseName').value;
+        document.getElementById('displayName').textContent = name;
+        document.getElementById('displayCourse').textContent = course;
+    }
+    
+    function downloadCert() {
+        const certElement = document.querySelector('.certificate-box');
+        html2canvas(certElement, {scale: 2}).then(canvas => {
+            const link = document.createElement('a');
+            link.download = 'certificate-demo.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+    }
+    
+    updateCertificate();
+</script>
+{% endblock %}

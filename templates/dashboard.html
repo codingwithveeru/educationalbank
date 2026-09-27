@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - EduVerse{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Dashboard Section -->
+<section class="dashboard-hero py-5">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-3">Welcome Back! 👋</h1>
+                <p class="lead text-muted">Aaj kya seekhna hai? Check your progress below.</p>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+                <a href="{% url 'courses' %}" class="btn btn-primary btn-lg me-2">
+                    <i class="bi bi-play-circle"></i> Continue Learning
+                </a>
+                <a href="{% url 'notes' %}" class="btn btn-outline-primary btn-lg">
+                    <i class="bi bi-download"></i> Get Notes
+                </a>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="row g-4">
+            <!-- Total Courses -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card stat-card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Total Courses</p>
+                                <h2 class="fw-bold mb-0">{{ total_courses }}</h2>
+                            </div>
+                            <div class="stat-icon bg-primary">
+                                <i class="bi bi-book text-white"></i>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-success-subtle text-success">+12% this month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Free Courses -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card stat-card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Free Courses</p>
+                                <h2 class="fw-bold mb-0">{{ free_courses }}</h2>
+                            </div>
+                            <div class="stat-icon bg-success">
+                                <i class="bi bi-gift text-white"></i>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-success-subtle text-success">100% Free</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paid Courses -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card stat-card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Paid Courses</p>
+                                <h2 class="fw-bold mb-0">{{ paid_courses }}</h2>
+                            </div>
+                            <div class="stat-icon bg-warning">
+                                <i class="bi bi-star text-white"></i>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-warning-subtle text-warning">Premium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Students -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card stat-card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <p class="text-muted mb-1">Students</p>
+                                <h2 class="fw-bold mb-0">{{ students_registered|floatformat:0 }}</h2>
+                            </div>
+                            <div class="stat-icon bg-info">
+                                <i class="bi bi-people text-white"></i>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-info-subtle text-info">Active learners</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Activity Section - Optional -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h3 class="mb-4">Continue Learning</h3>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h6>Class 10 Maths</h6>
+                        <div class="progress mb-2" style="height: 6px;">
+                            <div class="progress-bar" style="width: 65%"></div>
+                        </div>
+                        <small class="text-muted">65% Complete</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h6>JEE Physics</h6>
+                        <div class="progress mb-2" style="height: 6px;">
+                            <div class="progress-bar bg-success" style="width: 30%"></div>
+                        </div>
+                        <small class="text-muted">30% Complete</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

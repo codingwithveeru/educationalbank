@@ -1,0 +1,130 @@
+.custom-navbar{
+
+background:white;
+
+box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+padding:14px 0;
+
+}
+
+.logo{
+
+font-size:30px;
+
+font-weight:700;
+
+color:#2563eb!important;
+
+}
+
+.nav-link{
+
+font-size:16px;
+
+font-weight:500;
+
+margin:0 8px;
+
+transition:.3s;
+
+color:#333!important;
+
+}
+
+.nav-link:hover{
+
+color:#2563eb!important;
+
+}
+
+.search-box{
+
+width:250px;
+
+}
+
+.search-box input{
+
+border-radius:30px 0 0 30px;
+
+}
+
+.search-box button{
+
+border-radius:0 30px 30px 0;
+
+}
+
+.btn-primary{
+
+border-radius:30px;
+
+padding:4px 12px;
+
+}
+
+.btn-outline-primary{
+
+border-radius:30px;
+
+padding:px px;
+
+}
+
+@media(max-width:991px){
+
+.search-box{
+
+margin-top:20px;
+
+width:100%;
+
+}
+
+.navbar-nav{
+
+margin-top:20px;
+
+}
+
+}
+/* Navbar Links Hover Effect */
+.navbar .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+    color: #333 !important;
+}
+
+/* Hover pe color change + underline animation */
+.navbar .nav-link:hover {
+    color: #0d6efd !important;  /* Bootstrap blue */
+}
+
+/* Neeche wali line animation */
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #0d6efd;
+    transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Active page ka link highlighted rahe */
+.navbar .nav-link.active {
+    color: #0d6efd !important;
+    font-weight: 600;
+}
+
+.navbar .nav-link.active::after {
+    width: 100%;
+    left: 0;
+}

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - Educational Platform{% endblock %}
+
+{% block content %}
+<!-- Hero Section with Course Cards -->
+<section class="hero-section">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">Learn Coding with <span>×͜×⚡ʀᴀꜰᴛᴀᴀʀ⚡</span></h1>
+            <p class="hero-subtitle">Python, Java, HTML, C - Sab kuch ek jagah. Zero se Hero bano.</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Students</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Courses</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.8★</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+            </div>
+            <a href="#courses" class="hero-btn">Start Learning Free</a>
+        </div>
+        
+        <!-- Featured Courses Grid -->
+        <div class="hero-courses">
+            <!-- Python Card -->
+            <div class="course-card python">
+                <div class="course-icon"><i class="fab fa-python"></i></div>
+                <h3 class="course-name">Python</h3>
+                <p class="course-desc">Web dev, AI/ML, Automation sab kuch</p>
+                <div class="course-meta">
+                    <span><i class="fas fa-book"></i> 40 Lessons</span>
+                    <span><i class="fas fa-clock"></i> 12 Hours</span>
+                </div>
+                <a href="/course/python" class="course-btn">Enroll Now</a>
+            </div>
+
+            <!-- Java Card -->
+            <div class="course-card java">
+                <div class="course-icon"><i class="fab fa-java"></i></div>
+                <h3 class="course-name">Java</h3>
+                <p class="course-desc">Android, Backend, DSA mastery</p>
+                <div class="course-meta">
+                    <span><i class="fas fa-book"></i> 50 Lessons</span>
+                    <span><i class="fas fa-clock"></i> 15 Hours</span>
+                </div>
+                <a href="/course/java" class="course-btn">Enroll Now</a>
+            </div>
+
+            <!-- HTML Card -->
+            <div class="course-card html">
+                <div class="course-icon"><i class="fab fa-html5"></i></div>
+                <h3 class="course-name">HTML + CSS</h3>
+                <p class="course-desc">Web design ki pehli seedhi</p>
+                <div class="course-meta">
+                    <span><i class="fas fa-book"></i> 25 Lessons</span>
+                    <span><i class="fas fa-clock"></i> 8 Hours</span>
+                </div>
+                <a href="/courses/html" class="course-btn">Enroll Now</a>
+            </div>
+
+            <!-- C Card -->
+            <div class="course-card c">
+                <div class="course-icon"><i class="fas fa-code"></i></div>
+                <h3 class="course-name">C Language</h3>
+                <p class="course-desc">Programming ki foundation</p>
+                <div class="course-meta">
+                    <span><i class="fas fa-book"></i> 35 Lessons</span>
+                    <span><i class="fas fa-clock"></i> 10 Hours</span>
+                </div>
+                <a href="/course/c" class="course-btn">Enroll Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

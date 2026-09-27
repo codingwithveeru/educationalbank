@@ -1,0 +1,43 @@
+{% load static %}
+<div class="ai-chat-window" id="aiChat">
+
+    <div class="chat-header">
+
+        <img src="{% static 'images/ai_teacher.png' %}" alt="">
+
+        <div>
+
+            <h4>Edu AI Teacher</h4>
+
+            <small>Online</small>
+
+        </div>
+
+        <button id="closeChat">✖</button>
+
+    </div>
+
+    <div class="chat-body" id="chatBody">
+
+        <div class="ai-message">
+
+            👋 Hello! Ask me anything.
+
+        </div>
+
+    </div>
+
+    <div class="chat-footer">
+
+        <input
+        type="text"
+        id="userMessage"
+        placeholder="Type your question...">
+
+        <button id="sendBtn">➤</button>
+
+        <button id="micBtn">🎤</button>
+
+    </div>
+
+</div>

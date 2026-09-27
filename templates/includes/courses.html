@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}All Courses - ×͜×⚡ʀᴀꜰᴛᴀᴀʀ⚡{% endblock %}
+
+{% block content %}
+
+
+<!-- Courses Page -->
+<section class="courses-page">
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">Explore Our <span>Courses</span></h1>
+            <p class="page-subtitle">Zero se Hero bano. Industry ready skills seekho.</p>
+            
+            <!-- Filter Tags -->
+            <div class="filter-tags">
+                <button class="tag-btn active" data-filter="all">All</button>
+                <button class="tag-btn" data-filter="web">Web Dev</button>
+                <button class="tag-btn" data-filter="programming">Programming</button>
+                <button class="tag-btn" data-filter="framework">Frameworks</button>
+                <button class="tag-btn" data-filter="hardware">Hardware</button>
+            </div>
+        </div>
+
+        <!-- Courses Grid -->
+        <div class="courses-grid">
+            
+            <!-- 1. Python -->
+            <div class="course-card" data-category="programming">
+                <div class="course-badge">Popular</div>
+                <div class="course-icon python"><i class="fab fa-python"></i></div>
+                <h3>Python Programming</h3>
+                <p>Web development, AI/ML, Data Science, Automation</p>
+                <div class="course-info">
+                    <span><i class="fas fa-signal"></i> Beginner</span>
+                    <span><i class="fas fa-clock"></i> 12 Hrs</span>
+                    <span><i class="fas fa-book"></i> 40 Lessons</span>
+                </div>
+                <div class="course-footer">
+                    <span class="course-price">₹999 <s>₹2999</s></span>
+                    <a href="/course/python" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- 2. Java -->
+            <div class="course-card" data-category="programming">
+                <div class="course-icon java"><i class="fab fa-java"></i></div>
+                <h3>Java Masterclass</h3>
+                <p>Android Development, Backend, DSA, Spring Boot</p>
+                <div class="course-info">
+                    <span><i class="fas fa-signal"></i> Intermediate</span>
+                    <span><i class="fas fa-clock"></i> 15 Hrs</span>
+                    <span><i class="fas fa-book"></i> 50 Lessons</span>
+                </div>
+                <div class="course-footer">
+                    <span class="course-price">₹1299 <s>₹3499</s></span>
+                    <a href="/course/java" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- 3. HTML + CSS -->
+            <div class="course-card" data-category="web">
+                <div class="course-icon html"><i class="fab fa-html5"></i></div>
+                <h3>HTML5 & CSS3</h3>
+                <p>Web Design, Responsive Layouts, Flexbox, Grid</p>
+                <div class="course-info">
+                    <span><i class="fas fa-signal"></i> Beginner</span>
+                    <span><i class="fas fa-clock"></i> 8 Hrs</span>
+                    <span><i class="fas fa-book"></i> 25 Lessons</span>
+                </div>
+                <div class="course-footer">
+                    <span class="course-price">Free</span>
+                    <a href="/course/html" class="enroll-btn">Start</a>
+                </div>
+            </div>
+
+            <!-- 4. JavaScript -->
+            <div class="course-card" data-category="web">
+                <div class="course-badge">Hot</div>
+                <div class="course-icon js"><i class="fab fa-js"></i></div>
+                <h3>JavaScript ES6+</h3>
+                <p>DOM, Async/Await, APIs, Modern JS Concepts</p>
+                <div class="course-info">
+                    <span><i class="fas fa-signal"></i> Intermediate</span>
+                    <span><i class="fas fa-clock"></i> 14 Hrs</span>
+                    <span><i class="fas fa-book"></i> 45 Lessons</span>
+                </div>
+                <div class="course-footer">
+                    <span class="course-price">₹1499 <s>₹3999</s></span>
+                    <a href="/course/javascript" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- 5. C Language -->
+            <div class="course-card" data-category="programming">
+                <div class="course-icon c"><i class="fas fa-code"></i></div>
+                <h3>C Programming</h3>
+                <p>Programming Fundamentals, Pointers, Data Structures</p>
+                <div class="course-info">
+                    <span><i class="fas fa-signal"></i> Beginner</span>
+                    <span><i class="fas fa-clock"></i> 10 Hrs</span>
+                    <span><i class="fas fa-book"></i> 35 Lessons</span>
+                </div>
+                <div class="course-footer">
+                    <span class="course-price">₹799 <s>₹1999</s></span>
+                    <a href="/course/c" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- 6. C++ -->
+            <div class="course-card" data-category="programming">
+                <div class="course-icon cpp"><i class="fas fa-laptop-code"></i></div>
+                <h3>C++ Programming</h3>
+                <p>OOP, STL, Competitive Programming, Game Dev</p>
+                <div class="course-info">
+                    <span><i class="fas fa-signal"></i> Intermediate</span>
+                    <span><i class="fas fa-clock"></i> 18 Hrs</span>
+                    <span><i class="fas fa-book"></i> 55 Lessons</span>
+                </div>
+                <div class="course-footer">
+                    <span class="course-price">₹1599 <s>₹4499</s></span>
+                    <a href="/course/cpp" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- 7. Django -->
+            <div class="course-card" data-category="framework">
+                <div class="course-badge">New</div>
+                <div class="course-icon django"><i class="fas fa-server"></i></div>
+                <h3>Django Framework</h3>
+                <p>Python Web Framework, REST APIs, Full Stack</p>
+                <div class="course-info">
+                    <span><i class="fas fa-signal"></i> Advanced</span>
+                    <span><i class="fas fa-clock"></i> 20 Hrs</span>
+                    <span><i class="fas fa-book"></i> 60 Lessons</span>
+                </div>
+                <div class="course-footer">
+                    <span class="course-price">₹1999 <s>₹4999</s></span>
+                    <a href="/course/django" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- 8. React JS -->
+            <div class="course-card" data-category="framework">
+                <div class="course-badge">Trending</div>
+                <div class="course-icon react"><i class="fab fa-react"></i></div>
+                <h3>React JS</h3>
+                <p>Components, Hooks, Redux, Modern Frontend</p>
+                <div class="course-info">
+                    <span><i class="fas fa-signal"></i> Intermediate</span>
+                    <span><i class="fas fa-clock"></i> 16 Hrs</span>
+                    <span><i class="fas fa-book"></i> 48 Lessons</span>
+                </div>
+                <div class="course-footer">
+                    <span class="course-price">₹1799 <s>₹4299</s></span>
+                    <a href="/course/react" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- 9. Raspberry Pi -->
+            <div class="course-card" data-category="hardware">
+                <div class="course-icon raspberry"><i class="fab fa-raspberry-pi"></i></div>
+                <h3>Raspberry Pi Projects</h3>
+                <p>IoT, Home Automation, Python, Electronics</p>
+                <div class="course-info">
+                    <span><i class="fas fa-signal"></i> Beginner</span>
+                    <span><i class="fas fa-clock"></i> 10 Hrs</span>
+                    <span><i class="fas fa-book"></i> 30 Lessons</span>
+                </div>
+                <div class="course-footer">
+                    <span class="course-price">₹1199 <s>₹2999</s></span>
+                    <a href="/course/raspberry-pi" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- 10. Node.js -->
+            <div class="course-card" data-category="framework">
+                <div class="course-icon node"><i class="fab fa-node-js"></i></div>
+                <h3>Node.js Backend</h3>
+                <p>Express, MongoDB, REST APIs, Authentication</p>
+                <div class="course-info">
+                    <span><i class="fas fa-signal"></i> Advanced</span>
+                    <span><i class="fas fa-clock"></i> 18 Hrs</span>
+                    <span><i class="fas fa-book"></i> 52 Lessons</span>
+                </div>
+                <div class="course-footer">
+                    <span class="course-price">₹1899 <s>₹4799</s></span>
+                    <a href="/course/nodejs" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- 11. SQL -->
+            <div class="course-card" data-category="programming">
+                <div class="course-icon sql"><i class="fas fa-database"></i></div>
+                <h3>SQL & Databases</h3>
+                <p>MySQL, PostgreSQL, Queries, Database Design</p>
+                <div class="course-info">
+                    <span><i class="fas fa-signal"></i> Beginner</span>
+                    <span><i class="fas fa-clock"></i> 9 Hrs</span>
+                    <span><i class="fas fa-book"></i> 28 Lessons</span>
+                </div>
+                <div class="course-footer">
+                    <span class="course-price">₹899 <s>₹2499</s></span>
+                    <a href="/course/sql" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- 12. Git & GitHub -->
+            <div class="course-card" data-category="programming">
+                <div class="course-icon git"><i class="fab fa-git-alt"></i></div>
+                <h3>Git & GitHub</h3>
+                <p>Version Control, Collaboration, Open Source</p>
+                <div class="course-info">
+                    <span><i class="fas fa-signal"></i> Beginner</span>
+                    <span><i class="fas fa-clock"></i> 5 Hrs</span>
+                    <span><i class="fas fa-book"></i> 15 Lessons</span>
+                </div>
+                <div class="course-footer">
+                    <span class="course-price">Free</span>
+                    <a href="/course/git" class="enroll-btn">Start</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

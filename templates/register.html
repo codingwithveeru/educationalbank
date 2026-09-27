@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Register - EduMaster{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-5">
+                        <div class="text-center mb-4">
+                            <i class="bi bi-person-plus-fill text-primary" style="font-size: 60px;"></i>
+                            <h2 class="fw-bold mt-3">Create Account</h2>
+                            <p class="text-muted">Join EduMaster today!</p>
+                        </div>
+                        
+                        <form method="POST">
+                            {% csrf_token %}
+                            {% for field in form %}
+                            <div class="mb-3">
+                                <label class="form-label">{{ field.label }}</label>
+                                {{ field }}
+                                {% if field.errors %}
+                                <div class="text-danger small">{{ field.errors }}</div>
+                                {% endif %}
+                                {% if field.help_text %}
+                                <div class="form-text">{{ field.help_text }}</div>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                            
+                            <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
+                                <i class="bi bi-person-plus"></i> Register
+                            </button>
+                        </form>
+                        
+                        <div class="text-center">
+                            <p class="mb-0">Already have account? 
+                                <a href="{% url 'login' %}" class="text-decoration-none fw-bold">Login karo</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+</style>
+{% endblock %}
